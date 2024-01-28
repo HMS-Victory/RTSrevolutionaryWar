@@ -18,8 +18,9 @@ function handleMousedown(event,dragData) {
         dragData.starty=y
         dragData.active = true;
 
-      } else if (event.ctrlKey) {
-        unit.selected = true;
+      } else if(!event.ctrlKey){
+        //unselect a unit if it is not selecting another unit
+        unit.selected=false
       }
     }
   });

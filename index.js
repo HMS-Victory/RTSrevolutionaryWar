@@ -24,6 +24,12 @@ side1.push(
 side1.push(
   new Infantry(ctx, (color = "red"), (positionx = 100), (positiony = 100))
 );
+side1.push(
+    new Infantry(ctx, (color = "red"), (positionx = 150), (positiony = 150))
+  );
+side1.push(
+new Infantry(ctx, (color = "red"), (positionx = 200), (positiony = 200))
+);
 
 function animate() {
   ctx.fillStyle = "black";

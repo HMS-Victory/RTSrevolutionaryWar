@@ -1,4 +1,8 @@
 function handleMouseMove(event, dragData) {
+  // keep track of how many units are in a column
+  let rank=0;
+  let file=0;
+
   let numSelected = 0;
   side1.map((unit) => {
     if (unit.selected && dragData.active) {
@@ -17,43 +21,55 @@ function handleMouseMove(event, dragData) {
           //handles horizontal drag formatting
 
           if (dragData.startx - dragData.endx < numSelected * 70) {
+            rank++;
+            file--;
             unit.destination.x = dragData.startx;
-            unit.destination.y = dragData.starty - numSelected * 40;
+            unit.destination.y = dragData.starty - rank * 40;
+            
           } else {
-            unit.destination.x = dragData.startx - numSelected * 70;
+            unit.destination.x = dragData.startx - file * 70;
             unit.destination.y = dragData.starty;
+            file++;
           }
           unit.destination.orientation='south';
         } else {
           if (dragData.endx-dragData.startx < numSelected * 70) {
+            rank++;
+            file--;
             unit.destination.x = dragData.startx;
-            unit.destination.y = dragData.starty + numSelected * 40;
+            unit.destination.y = dragData.starty + rank * 40;
           } else {
-            unit.destination.x = dragData.startx + numSelected * 70;
+            unit.destination.x = dragData.startx + file * 70;
             unit.destination.y = dragData.starty;
+            file++;
           }
           unit.destination.orientation='north';
-
         }
       } else {
         //handles vertical drag formatting
 
         if (dragData.starty > dragData.endy) {
           if(dragData.starty - dragData.endy <numSelected * 70){
+            rank++;
+            file--;
             unit.destination.y = dragData.starty;
-            unit.destination.x = dragData.startx + numSelected * 40;
+            unit.destination.x = dragData.startx + rank * 40;
           }else{
             unit.destination.x = dragData.startx;
-            unit.destination.y = dragData.starty - numSelected * 70;
+            unit.destination.y = dragData.starty - file * 70;
+            file++;
           }
           unit.destination.orientation='west';
         } else {
           if(dragData.endy-dragData.starty < numSelected * 70){
+            rank++;
+            file--;
             unit.destination.y = dragData.starty;
-            unit.destination.x = dragData.startx - numSelected * 40;
+            unit.destination.x = dragData.startx - rank * 40;
           }else{
             unit.destination.x = dragData.startx;
-            unit.destination.y = dragData.starty + numSelected * 70;
+            unit.destination.y = dragData.starty + file * 70;
+            file++;
           }
           
           unit.destination.orientation='east'

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Main Menu</title>
+  </head>
+  <body>
+    <img src="../images/menu-background.png" class="backgroundImage" />
+    <div class="buttonContainer">
+      <p id="newGame">New Game</p>
+      <p id="gameListBtn">Join Game</p>
+    </div>
+    <div class="customGame" hidden>
+      <div class="customGameContainer">
+        <div class="top-container">
+          <div class="units">
+            <div class="moneyContainer">
+              <h4>Gold:</h4>
+              <input
+                type="text"
+                class="textInput text gold"
+                value="1000"
+              />
+            </div>
+            <h3>Units</h3>
+            <div>
+              <p>Infantry</p>
+              <p id="infantryCount1">0</p>
+              <p class="btn infantryAdd">+</p>
+              <p class="btn infantrySubtract">-</p>
+            </div>
+            <div>
+              <p>Cavalry</p>
+              <p id="cavalryCount1">0</p>
+              <p class="btn cavalryAdd">+</p>
+              <p class="btn cavalrySubtract">-</p>
+            </div>
+            <div>
+              <p>Artillery</p>
+              <p id="artilleryCount1">0</p>
+              <p class="btn artilleryAdd">+</p>
+              <p class="btn artillerySubtract">-</p>
+            </div>
+          </div>
+          <div class="startButtonContainer">
+            <div id="startCustomGameBtn" class="button">
+              <p>Start</p>
+            </div>
+            <div id="startRandomGameBtn" class="button">
+              <p>Randomize Options & Start</p>
+            </div>
+            <div id="exitCustomGameBtn" class="button close">
+              <p>Cancel</p>
+            </div>
+          </div>
+        </div>
+        <div class="maps">
+          <h2>Map</h2>
+          <div class="list-container">
+            <div id="mapList" class="list">
+              <p id="random" class="listItem selected">random</p>
+              <p id="map1" class="listItem">map1</p>
+              <p id="map2" class="listItem">map2</p>
+            </div>
+            <div class="sampleImageContainer">
+              <img src="../images/maps/map1.png" alt="" class="sampleImage" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gameListModal" hidden>
+      <div class="gameListContainer">
+        <div class="gameListHeader">
+          <p class="first">players</p>
+          <p class="second">gold</p>
+          <p class="third">map</p>
+        </div>
+        <div id="availableGameList"></div>
+        <div class="JoinGamebuttonContainer">
+          <div id="exitGameList" class="button close">
+            <p>Cancel</p>
+          </div>
+          <div class="rightButtonContainer">
+            <div id="refreshGameList" class="button">
+              <p>Refresh</p>
+            </div>
+            <div id="joinGameBtn" class="button">
+              <p>Join</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="joiningGame" hidden>
+      <div class="joiningGameContainer">
+        <div class="joingingHeaderContainer">
+          <h2>Gold:</h2>
+          <h2 class="gold2"></h2>
+        </div>
+        <div class="unitsContainer">
+          <h3>Units</h3>
+
+          <div>
+            <p>Infantry</p>
+            <p id="infantryCount2">0</p>
+            <p class="btn infantryAdd1">+</p>
+            <p class="btn infantrySubtract1">-</p>
+          </div>
+          <div>
+            <p>Cavalry</p>
+            <p id="cavalryCount2">0</p>
+            <p class="btn cavalryAdd1">+</p>
+            <p class="btn cavalrySubtract1">-</p>
+          </div>
+          <div>
+            <p>Artillery</p>
+            <p id="artilleryCount2">0</p>
+            <p class="btn artilleryAdd1">+</p>
+            <p class="btn artillerySubtract1">-</p>
+          </div>
+        </div>
+
+        <div class="joiningGamebuttonContainer">
+          <div class="button close" id="leaveGame">
+            <p>Leave</p>
+          </div>
+          <div class="button" id="StartJoinedGame">
+            <p>Start</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="disconnected" hidden>
+      <p>You are disconnected try refreshing your browser to regain connection</p>
+    </div>
+    <div class="waitingForOtherPlayers" id="waitingForOtherPlayers" hidden>
+      <div>
+        <p>Waiting for other players to join...</p>
+        <div class="button close" id="hostLeaveGame">
+          <p>Leave</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./FetchElements.js"></script>
+  <script src="./index.js"></script>
+  <script src="./utils/http/recieveMessages.js"></script>
+  <script src="./utils/http/sendMessages.js"></script>
+
+  <script src="./utils/menuButtons.js"></script>
+
+  <script src="./joinGameModal/functions.js"></script>
+  <script src="./joinGameModal/eventListeners.js"></script>
+
+  <script src="./newGameModal/eventListeners.js"></script>
+  <script src="./newGameModal/functions.js"></script>
+  <script src="./utils/globalEventListeners.js"></script>
+</html>

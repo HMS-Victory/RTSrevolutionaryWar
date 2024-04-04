@@ -1,27 +1,81 @@
-function handleMousedown(event,dragData) {
+function handleMousedown(event, dragData, player) {
   let rect = canvas.getBoundingClientRect();
   let x = event.clientX - rect.left;
   let y = event.clientY - rect.top;
 
-  side1.map((unit) => {
-    if (
-      x >= unit.positionx &&
-      x <= unit.positionx + unit.width &&
-      y >= unit.positiony &&
-      y <= unit.positiony + unit.height
-    ) {
-      unit.selected = true;
-    } else {
-      if (unit.selected && !event.ctrlKey) {
-        
-        dragData.startx=x;
-        dragData.starty=y
-        dragData.active = true;
-
-      } else if(!event.ctrlKey){
-        //unselect a unit if it is not selecting another unit
-        unit.selected=false
+  if (player === "player1") {
+    side1.map((unit) => {
+      if (
+        x >= unit.positionx &&
+        x <= unit.positionx + unit.width &&
+        y >= unit.positiony &&
+        y <= unit.positiony + unit.height
+      ) {
+        unit.selected = true;
+      } else {
+        if (unit.selected && !event.ctrlKey) {
+          dragData.startx = x;
+          dragData.starty = y;
+          dragData.active = true;
+        } else if (!event.ctrlKey) {
+          //unselect a unit if it is not selecting another unit
+          unit.selected = false;
+        }
       }
+    });
+  } else {
+    side2.map((unit) => {
+      if (
+        x >= unit.positionx &&
+        x <= unit.positionx + unit.width &&
+        y >= unit.positiony &&
+        y <= unit.positiony + unit.height
+      ) {
+        unit.selected = true;
+      } else {
+        if (unit.selected && !event.ctrlKey) {
+          dragData.startx = x;
+          dragData.starty = y;
+          dragData.active = true;
+        } else if (!event.ctrlKey) {
+          //unselect a unit if it is not selecting another unit
+          unit.selected = false;
+        }
+      }
+    });
+  }
+}
+
+function sideBarMouseDown(event, sidebarItems) {
+  let i = 0;
+  Array.from(sidebarItems, (item) => {
+    if (
+      !event.ctrlKey &&
+      (item.toString() === "[object HTMLImageElement]" ||
+        item.toString() === "[object HTMLDivElement]")
+    ) {
+      const unit = document.getElementById(`${i}`);
+
+      unit.classList.remove("selectedUnit");
+      i++;
     }
   });
+  event.target.classList.add("selectedUnit");
+  if (player === "player1") {
+    let i = 0;
+    side1.map((unit) => {
+      if(event.target.id == i){
+        unit.selected=true
+      }
+      i++;
+    });
+  } else if (player === "player2") {
+    let i = 0;
+    side2.map((unit) => {
+      if (event.target.id == i) {
+        unit.selected = true;
+      }
+      i++;
+    });
+  }
 }

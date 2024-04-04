@@ -49,3 +49,13 @@ function outlineUnit(width, height, positionx, positiony, ctx){
   ctx.stroke();
   ctx.strokeStyle='#000000'
 }
+
+function drawStagingAreas(ctx, CANVAS_WIDTH){
+  //player1
+  ctx.strokeStyle = 'red';
+  drawHorizontalLine(CANVAS_WIDTH, 0, 630, ctx)
+  //player2
+  ctx.strokeStyle="blue";
+  drawHorizontalLine(CANVAS_WIDTH, 0, 90, ctx)
+  ctx.strokeStyle="black"
+}

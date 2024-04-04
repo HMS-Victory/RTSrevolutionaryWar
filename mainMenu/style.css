@@ -1,0 +1,329 @@
+* {
+  color: white;
+  margin: 0;
+  padding: 0;
+  /* prevent text selection */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  /* prevent dragging image */
+  /* user-drag: none;   */
+  -webkit-user-drag: none;
+}
+main {
+  position: relative;
+}
+.backgroundImage {
+  position: absolute;
+  z-index: -100;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.buttonContainer {
+  position: absolute;
+  right: 0;
+  top: 45%;
+  margin-right: 5%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 11%;
+}
+.buttonContainer p {
+  font-size: 30px;
+  color: whitesmoke;
+}
+.buttonContainer .hover {
+  display: none;
+}
+.buttonContainer p:hover {
+  filter: brightness(90%);
+  cursor: pointer;
+  display: block;
+}
+
+.customGame {
+  background-color: rgba(0, 0, 0, 0.538);
+  height: 80%;
+  width: 60%;
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  color: white;
+  border-radius: 5px;
+  padding: 12px;
+}
+.customGameContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.customGameContainer .units {
+  width: 40%;
+  height: 90%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.customGameContainer .units h3 {
+  border-bottom: 1px solid;
+}
+.customGameContainer .units div {
+  display: flex;
+  justify-content: space-between;
+}
+.customGameContainer .top-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+.units div p:last-child {
+  margin-right: 5rem;
+}
+.units div p:last-child {
+  margin-bottom: 1.2rem;
+}
+
+.btn {
+  cursor: pointer;
+}
+.textInput {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  height: 30px;
+  width: 50%;
+  font-size: 25px;
+}
+.textInput:focus {
+  outline: none;
+  border-bottom: 2px #cccccc solid;
+}
+.moneyContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.moneyContainer h4 {
+  font-size: 25px;
+}
+.text {
+  color: white;
+}
+
+.maps {
+  width: 90%;
+  height: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  color: white;
+}
+.list-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.list {
+  width: 50%;
+  height: 100%;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.list p {
+  width: 50%;
+  height: fit-content;
+  padding-right: 45%;
+}
+.list p:hover {
+  background-color: #aaaaaa30;
+}
+.listItem {
+  cursor: default;
+}
+.sampleImageContainer {
+  width: 50%;
+}
+.sampleImage {
+  width: 100%;
+}
+
+.selected {
+  background-color: #aaaaaa60;
+}
+
+.startButtonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.button {
+  padding: 1rem;
+  background-color: rgb(78, 78, 78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+
+  border-width: 3px;
+  border-style: solid;
+  border-color: #998b23;
+  /* box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3); */
+}
+.button:hover {
+  cursor: pointer;
+  filter: brightness(90%);
+  transform: translateY(2px);
+}
+
+.close {
+  background-color: rgb(255, 57, 57);
+}
+
+/* Join Game Container */
+.gameListModal {
+  background-color: rgba(0, 0, 0, 0.538);
+  height: 80%;
+  width: 60%;
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  color: white;
+  border-radius: 5px;
+  padding: 12px;
+}
+.gameListContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.gameListHeader {
+  display: flex;
+  gap: 5rem;
+  padding-left: 3rem;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.radioBtn {
+  width: 100%;
+  color: white;
+  font-size: 1rem;
+  display: flex;
+  padding-left: 3rem;
+  gap: 6.5rem;
+}
+.JoinGamebuttonContainer {
+  display: flex;
+  /* justify-content: space-between; */
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.JoinGamebuttonContainer div {
+  width: 12%;
+}
+.joinGameSelected {
+  background-color: #aaaaaa60;
+  width: 94.7%;
+}
+.JoinGamebuttonContainer .rightButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+/* Joining Game section */
+.joiningGame {
+  background-color: rgba(0, 0, 0, 0.538);
+  height: 30%;
+  width: 60%;
+  position: absolute;
+  left: 15%;
+  top: 10%;
+  color: white;
+  border-radius: 5px;
+  padding: 12px;
+}
+.joiningGameContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.joiningGamebuttonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.joiningGamebuttonContainer .button {
+  width: 10%;
+}
+.unitsContainer {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 1rem;
+}
+.unitsContainer div {
+  display: flex;
+  gap: 6rem;
+}
+.joingingHeaderContainer {
+  display: flex;
+  gap: 2rem;
+}
+
+/* waiting for other players to join... */
+.waitingForOtherPlayers {
+  background-color: rgba(0, 0, 0, 0.538);
+  height: 15%;
+  width: 20%;
+  position: absolute;
+  left: 38%;
+  top: 35%;
+  color: white;
+  border-radius: 5px;
+  padding: 12px;
+}
+.waitingForOtherPlayers div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.waitingForOtherPlayers .button {
+  width: 85%;
+  height: 15%;
+}
+
+
+/* disconnected */
+.disconnected{
+  background-color: rgba(0, 0, 0, 0.538);
+  height: 5%;
+  width: 20%;
+  position: absolute;
+  left: 38%;
+  top: 35%;
+  color: white;
+  border-radius: 5px;
+  padding: 12px;
+  z-index: 100;
+}

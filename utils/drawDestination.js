@@ -8,11 +8,11 @@ function drawDestination(destination, selected, ctx) {
       destination.orientation === "east" ||
       destination.orientation === "west"
     ) {
-      width = 30;
-      height = 60;
-    } else {
-      width = 60;
+      width = 15;
       height = 30;
+    } else {
+      width = 30;
+      height = 15;
     }
     ctx.fillRect(
       destination.x - width / 2,

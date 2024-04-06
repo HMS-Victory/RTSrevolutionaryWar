@@ -12,6 +12,10 @@ class Game{
         this.side2ArmyComposition={};
         this.map=map
         this.started=false
+        this.deploymentOver={
+            side1: false,
+            side2: false
+        }
     }
 
     startGame(){

@@ -173,6 +173,29 @@ wss.on("connection", (ws) => {
       } catch (error) {
         console.log(error);
       }
+    }else if(input.message==="endDeployment"){
+      const deployment=games[input.gameId].deploymentOver;
+      if(deployment.side1 || deployment.side2){
+        //if one of the sides has already finished deployment than you are halfway there
+        deployment[input.side]=true
+        ws.send(JSON.stringify({
+          message: "deploymentOver"
+        }))
+      }else{
+          //the input for this needs to be side1 or side2
+          deployment[input.side]=true
+          ws.send(JSON.stringify({
+            message: "awaitingDeployment"
+          }))   
+      }
+      
+    }else if(input.message==="awaitingDeployment"){
+      const deployment=games[input.gameId].deploymentOver
+      if(deployment.side1 && deployment.side2){
+        ws.send(JSON.stringify({
+          message: "deploymentOver"
+        }))
+      }
     }
   });
 

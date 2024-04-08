@@ -54,7 +54,8 @@ let waterArray = [
     "sprites/highground/8.png",
     "sprites/highground/9.png",
  ];
- 
+ let currentMap
+
  //places art
  function firstRenderOfMap() {
     let x = 0;

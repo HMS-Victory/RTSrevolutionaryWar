@@ -33,12 +33,7 @@ class Cannon {
       this.ctx.fillStyle = this.color;
       ctx.fillRect(this.positionx, this.positiony, this.width, this.height);
 
-      drawVerticalLine(
-         this.height,
-         this.positionx + this.height - 1,
-         this.positiony,
-         this.ctx
-      );
+      drawSquare(5, 5, (this.positionx+this.width/2)-2.5, (this.positiony+this.height/2)-2.5, ctx)
       if (this.orientation === "north") {
          drawHorizontalLine(
             this.width,

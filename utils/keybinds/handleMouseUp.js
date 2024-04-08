@@ -1,5 +1,4 @@
 function handleMouseUp(dragData, player) {
-  console.log(player)
   if (player === "player1") {
     if (dragData.active) {
       side1.map((unit) => {

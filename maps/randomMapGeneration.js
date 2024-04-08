@@ -62,7 +62,6 @@ function generateRandomMap() {
          }
       }
    }
-   console.log("Seed:", seed);
    //console.log(gameMap.values);
 }
 //generats a random map based using perlin noise based on a set seed

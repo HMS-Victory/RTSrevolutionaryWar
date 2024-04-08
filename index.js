@@ -1,6 +1,7 @@
 const canvas = document.getElementById("canvas1");
 const sidebar = document.getElementById("sidebar");
 const sidebarItems = document.getElementById("sidebar").childNodes;
+const startButton = document.getElementById("startButton");
 const popup = document.getElementById("popup");
 const ctx = canvas.getContext("2d");
 const CANVAS_WIDTH = (canvas.width = 1080);
@@ -31,7 +32,6 @@ ws.onmessage = (event) => {
     gameReady = true;
   } else if (data.message === "ping") {
     if (data.units) {
-      // console.log(data.units[0].x)
       if (data.side === "player1" && data.gameId === gameId) {
         //handle unit movement
         side2.map((unit, index) => {
@@ -58,6 +58,21 @@ ws.onmessage = (event) => {
         gameId: gameId,
       })
     );
+  } else if (data.message === "deploymentOver") {
+    gameReady = true;
+    popup.hidden = true;
+    popup.innerHTML = "";
+  } else if (data.message === "awaitingDeployment") {
+    if(data.gameId===gameId){
+      console.log("running")
+      ws.send(
+        JSON.stringify({
+          message: "awaitingDeployment",
+          gameId: gameId,
+        })
+      );
+    }
+    
   }
 };
 
@@ -93,7 +108,7 @@ function animate() {
   ctx.fillStyle = "black";
   if (renderHitBoxes) renderBoxes(); //render hitboxes
   else if (!renderHitBoxes) renderMap();
-  if (!gameReady) {
+  if (!gameReady && mapLoaded) {
     drawStagingAreas(ctx, CANVAS_WIDTH);
   }
 
@@ -118,7 +133,7 @@ function animate() {
           x: unit.positionx,
           y: unit.positiony,
           orientation: unit.orientation,
-          type: unit.unitType
+          type: unit.unitType,
         })
       );
       ws.send(
@@ -136,7 +151,7 @@ function animate() {
           x: unit.positionx,
           y: unit.positiony,
           orientation: unit.orientation,
-          type: unit.unitType
+          type: unit.unitType,
         })
       );
       ws.send(
@@ -264,9 +279,7 @@ document.addEventListener("mousemove", (event) => {
   handleMouseMove(event, dragData, player);
   handleMouseScrolling(event);
 });
-//on a regular click this will be done immedietly
 document.addEventListener("mouseup", () => {
-  //reset values after finishing dragging an item
   handleMouseUp(dragData, player);
 });
 
@@ -274,8 +287,12 @@ sidebar.addEventListener("click", (event) =>
   sideBarMouseDown(event, sidebarItems)
 );
 
-document.getElementById("startButton").addEventListener("click", (event) => {
-  popup.hidden = true;
-  popup.innerHTML = "";
-  gameReady = true;
+document.getElementById("startButton").addEventListener("click", () => {
+  ws.send(
+    JSON.stringify({
+      message: "endDeployment",
+      gameId: gameId,
+      side: player === "player1" ? "side1" : (player === "player2" ? "side2" : ""),
+    })
+  );
 });

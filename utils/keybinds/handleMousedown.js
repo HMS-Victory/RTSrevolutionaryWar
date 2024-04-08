@@ -38,7 +38,6 @@ function handleMousedown(event, dragData, player) {
           dragData.starty = y;
           dragData.active = true;
         } else if (!event.ctrlKey) {
-          //unselect a unit if it is not selecting another unit
           unit.selected = false;
         }
       }
@@ -61,21 +60,9 @@ function sideBarMouseDown(event, sidebarItems) {
     }
   });
   event.target.classList.add("selectedUnit");
-  if (player === "player1") {
-    let i = 0;
-    side1.map((unit) => {
-      if(event.target.id == i){
-        unit.selected=true
-      }
-      i++;
-    });
-  } else if (player === "player2") {
-    let i = 0;
-    side2.map((unit) => {
-      if (event.target.id == i) {
-        unit.selected = true;
-      }
-      i++;
-    });
+  if (player === "player1" && event.target.id) {
+    side1[event.target.id].selected=true;
+  } else if (player === "player2" && event.target.id) {
+    side2[event.target.id].selected=true
   }
 }

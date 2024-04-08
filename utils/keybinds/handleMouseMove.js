@@ -21,25 +21,25 @@ function handleMouseMove(event, dragData, player) {
           if (dragData.startx > dragData.endx) {
             //handles horizontal drag formatting
 
-            if (dragData.startx - dragData.endx < numSelected * 70) {
+            if (dragData.startx - dragData.endx < numSelected * 40) {
               rank++;
               file--;
               unit.destination.x = dragData.startx;
-              unit.destination.y = dragData.starty - rank * 40;
+              unit.destination.y = dragData.starty - rank * 25;
             } else {
-              unit.destination.x = dragData.startx - file * 70;
+              unit.destination.x = dragData.startx - file * 40;
               unit.destination.y = dragData.starty;
               file++;
             }
             unit.destination.orientation = "south";
           } else {
-            if (dragData.endx - dragData.startx < numSelected * 70) {
+            if (dragData.endx - dragData.startx < numSelected * 40) {
               rank++;
               file--;
               unit.destination.x = dragData.startx;
-              unit.destination.y = dragData.starty + rank * 40;
+              unit.destination.y = dragData.starty + rank * 25;
             } else {
-              unit.destination.x = dragData.startx + file * 70;
+              unit.destination.x = dragData.startx + file * 40;
               unit.destination.y = dragData.starty;
               file++;
             }
@@ -49,26 +49,26 @@ function handleMouseMove(event, dragData, player) {
           //handles vertical drag formatting
 
           if (dragData.starty > dragData.endy) {
-            if (dragData.starty - dragData.endy < numSelected * 70) {
+            if (dragData.starty - dragData.endy < numSelected * 40) {
               rank++;
               file--;
               unit.destination.y = dragData.starty;
-              unit.destination.x = dragData.startx + rank * 40;
+              unit.destination.x = dragData.startx + rank * 25;
             } else {
               unit.destination.x = dragData.startx;
-              unit.destination.y = dragData.starty - file * 70;
+              unit.destination.y = dragData.starty - file * 40;
               file++;
             }
             unit.destination.orientation = "west";
           } else {
-            if (dragData.endy - dragData.starty < numSelected * 70) {
+            if (dragData.endy - dragData.starty < numSelected * 40) {
               rank++;
               file--;
               unit.destination.y = dragData.starty;
-              unit.destination.x = dragData.startx - rank * 40;
+              unit.destination.x = dragData.startx - rank * 25;
             } else {
               unit.destination.x = dragData.startx;
-              unit.destination.y = dragData.starty + file * 70;
+              unit.destination.y = dragData.starty + file * 40;
               file++;
             }
 
@@ -101,25 +101,25 @@ function handleMouseMove(event, dragData, player) {
           if (dragData.startx > dragData.endx) {
             //handles horizontal drag formatting
 
-            if (dragData.startx - dragData.endx < numSelected * 70) {
+            if (dragData.startx - dragData.endx < numSelected * 40) {
               rank++;
               file--;
               unit.destination.x = dragData.startx;
-              unit.destination.y = dragData.starty - rank * 40;
+              unit.destination.y = dragData.starty - rank * 25;
             } else {
-              unit.destination.x = dragData.startx - file * 70;
+              unit.destination.x = dragData.startx - file * 40;
               unit.destination.y = dragData.starty;
               file++;
             }
             unit.destination.orientation = "south";
           } else {
-            if (dragData.endx - dragData.startx < numSelected * 70) {
+            if (dragData.endx - dragData.startx < numSelected * 40) {
               rank++;
               file--;
               unit.destination.x = dragData.startx;
-              unit.destination.y = dragData.starty + rank * 40;
+              unit.destination.y = dragData.starty + rank * 25;
             } else {
-              unit.destination.x = dragData.startx + file * 70;
+              unit.destination.x = dragData.startx + file * 40;
               unit.destination.y = dragData.starty;
               file++;
             }
@@ -129,26 +129,26 @@ function handleMouseMove(event, dragData, player) {
           //handles vertical drag formatting
 
           if (dragData.starty > dragData.endy) {
-            if (dragData.starty - dragData.endy < numSelected * 70) {
+            if (dragData.starty - dragData.endy < numSelected * 40) {
               rank++;
               file--;
               unit.destination.y = dragData.starty;
-              unit.destination.x = dragData.startx + rank * 40;
+              unit.destination.x = dragData.startx + rank * 25;
             } else {
               unit.destination.x = dragData.startx;
-              unit.destination.y = dragData.starty - file * 70;
+              unit.destination.y = dragData.starty - file * 40;
               file++;
             }
             unit.destination.orientation = "west";
           } else {
-            if (dragData.endy - dragData.starty < numSelected * 70) {
+            if (dragData.endy - dragData.starty < numSelected * 40) {
               rank++;
               file--;
               unit.destination.y = dragData.starty;
-              unit.destination.x = dragData.startx - rank * 40;
+              unit.destination.x = dragData.startx - rank * 25;
             } else {
               unit.destination.x = dragData.startx;
-              unit.destination.y = dragData.starty + file * 70;
+              unit.destination.y = dragData.starty + file * 40;
               file++;
             }
 

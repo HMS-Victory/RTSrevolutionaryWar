@@ -32,18 +32,13 @@ class Calvary {
    draw() {
       this.ctx.fillStyle = this.color;
       ctx.fillRect(this.positionx, this.positiony, this.width, this.height);
-      drawHorizontalLine(
+      drawLineDiagonalRight(
          this.width,
-         this.positionx,
-         this.positiony + this.width / 4,
-         this.ctx
-      );
-      drawVerticalLine(
          this.height,
-         this.positionx + this.height - 1,
+         this.positionx,
          this.positiony,
          this.ctx
-      );
+       );
       if (this.orientation === "north") {
          drawHorizontalLine(
             this.width,

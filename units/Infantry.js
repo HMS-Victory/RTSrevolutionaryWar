@@ -91,11 +91,10 @@ class Infantry {
     if (this.destination.isMoving) {
       this.moveTo(this.destination.x, this.destination.y);
     } else if (this.destination.isDropped) {
-      this.dropUnit(this.destination.x, this.destination.y);
+      this.dropUnit(this.destination.x-(this.width/2), this.destination.y-(this.height/2));
     }
   }
   dropUnit(x, y){
-   console.log("dropped: "+ x+","+y)
    this.positionx=x;
    this.positiony=y;
    this.changeOrientation(this.destination.orientation);
